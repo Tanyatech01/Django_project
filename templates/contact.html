@@ -1,55 +1,64 @@
 {% extends "base.html" %}
-{% block title%}
-Contact
-{%endblock title%}
+{% block title %}Contact Support{% endblock title %}
 
 {% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-5 mb-5">
+            <div class="card shadow border-0 p-4">
+                <h3 class="fw-bold text-primary mb-4">Support Inquiry</h3>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" name="email" class="form-control" placeholder="name@example.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Phone Number</label>
+                        <input type="text" name="phone" class="form-control" placeholder="+91..." required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Supply Chain Query / Message</label>
+                        <textarea name="msg" class="form-control" rows="4" placeholder="How can we help?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-2 fw-bold">Submit Query</button>
+                </form>
+            </div>
+        </div>
 
-<div class = "container">
-    <form method ="POST">
-        {% csrf_token %}
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Name</label>
-    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Email ID</label>
-    <input type="text" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Phone</label>
-    <input type="text" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Message</label>
-    <input type="text" name="msg" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
+        <div class="col-lg-7">
+            <div class="card shadow border-0 p-4 bg-light">
+                <h3 class="fw-bold mb-4">Recent Inquiries</h3>
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-primary">
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Message Snippet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for d in data %}
+                            <tr>
+                                <td class="fw-bold">{{ d.name }}</td>
+                                <td>{{ d.emailid }}</td>
+                                <td><small class="text-muted">{{ d.msg|truncatechars:40 }}</small></td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="3" class="text-center text-muted">No recent inquiries found.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Phone</th>
-      <th scope="col">Email ID</th>
-      <th scope="col">Message</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for d in data %}
-    <tr>
-      <th scope="row">{{d.name}}</th>
-      <td>{{d.phone}}</td>
-      <td>{{d.emailid}}</td>
-      <td>{{d.msg}}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
 {% endblock content %}

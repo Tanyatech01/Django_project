@@ -1,4 +1,83 @@
 {% extends "base.html" %}
-{% block title%}
-Produts
-{%endblock title%}
+{% load static %}
+{% block title %}Medical Catalog{% endblock title %}
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="list-group shadow-sm mb-4">
+                <div class="list-group-item bg-primary text-white fw-bold">Department Categories</div>
+                <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Critical Care <span class="badge bg-secondary rounded-pill">12</span></button>
+                <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Chronic Illness <span class="badge bg-secondary rounded-pill">45</span></button>
+                <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Vitamins & Nutrition <span class="badge bg-secondary rounded-pill">30</span></button>
+                <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">Emergency Aid <span class="badge bg-secondary rounded-pill">8</span></button>
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            <h2 class="fw-bold mb-4">Available Medicines</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="p-4 bg-light text-center"><img src="{% static 'img/amoxicillin.png' %}" alt="Amoxicillin" class="img-fluid rounded my-2" style="max-height: 80px;"></div>
+                        <div class="card-body">
+                            <span class="badge bg-info mb-2 text-dark">Critical Care</span>
+                            <h5 class="fw-bold">Amoxicillin 500mg</h5>
+                            <p class="text-muted small">Standard antibiotic for severe bacterial infections.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="h5 mb-0 text-primary">₹240.00</span>
+                                <button class="btn btn-sm btn-primary">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="p-4 bg-light text-center"><img src="{% static 'img/metformin.png' %}" alt="Metformin" class="img-fluid rounded my-2" style="max-height: 80px;"></div>
+                        <div class="card-body">
+                            <span class="badge bg-warning mb-2 text-dark">Chronic</span>
+                            <h5 class="fw-bold">Metformin 500mg</h5>
+                            <p class="text-muted small">Primary medication for Type 2 Diabetes management.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="h5 mb-0 text-primary">₹180.00</span>
+                                <button class="btn btn-sm btn-primary">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="p-4 bg-light text-center"><img src="{% static 'img/vitamin.png' %}" alt="Vitamin C" class="img-fluid rounded my-2" style="max-height: 80px;"></div>
+                        <div class="card-body">
+                            <span class="badge bg-success mb-2">Nutrition</span>
+                            <h5 class="fw-bold">Vitamin C + Zinc</h5>
+                            <p class="text-muted small">Immune system support and daily nutritional supplement.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="h5 mb-0 text-primary">₹350.00</span>
+                                <button class="btn btn-sm btn-primary">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="p-4 bg-light text-center"><img src="{% static 'img/paracetamol.png' %}" alt="Paracetamol" class="img-fluid rounded my-2" style="max-height: 80px;"></div>
+                        <div class="card-body">
+                            <span class="badge bg-secondary mb-2">Emergency</span>
+                            <h5 class="fw-bold">Paracetamol 650mg</h5>
+                            <p class="text-muted small">Relief from fever and mild to moderate pain.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <span class="h5 mb-0 text-primary">₹45.00</span>
+                                <button class="btn btn-sm btn-primary">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

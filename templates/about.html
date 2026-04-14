@@ -1,4 +1,37 @@
 {% extends "base.html" %}
-{% block title%}
-About
-{%endblock title%}
+{% block title %}About Agr Med{% endblock title %}
+{% block content %}
+<div class="container my-5 py-5">
+    <div class="row align-items-center">
+        <div class="col-lg-7">
+            <h1 class="display-4 fw-bold text-primary mb-4">Redefining Healthcare Access</h1>
+            <p class="lead text-dark">Agr Med is a specialized digital platform dedicated to the secure and efficient distribution of pharmaceutical essentials.</p>
+            <p class="text-secondary">
+                We believe that access to authentic medicine should not be a challenge. Our platform serves as a vital link between verified pharmaceutical sources and the end-user, ensuring that every tablet and bottle is tracked, verified, and delivered with integrity. By utilizing localized distribution hubs, we reduce logistical delays and prioritize patient health above all else.
+            </p>
+            
+            <div class="row g-4 mt-4">
+                <div class="col-md-6">
+                    <div class="p-4 border rounded shadow-sm bg-white">
+                        <h5 class="fw-bold text-primary"><i class="fas fa-user-shield me-2"></i> Patient First</h5>
+                        <p class="small text-muted mb-0">Every protocol we implement is designed to ensure the safety and recovery of our patients.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 border rounded shadow-sm bg-white">
+                        <h5 class="fw-bold text-primary"><i class="fas fa-microscope me-2"></i> Quality Assurance</h5>
+                        <p class="small text-muted mb-0">Continuous monitoring of expiry dates and batch integrity across all categories.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 text-center mt-5 mt-lg-0">
+            <div class="bg-primary text-white p-5 rounded-circle shadow d-inline-block">
+                <i class="fas fa-hospital-symbol fa-5x"></i>
+                <h4 class="mt-3 fw-bold">Agr Med</h4>
+                <p class="small mb-0">Est. 2026</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
